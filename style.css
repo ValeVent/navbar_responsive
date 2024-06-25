@@ -1,0 +1,157 @@
+/* REGOLE GENERALI */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* MENU-PRIMARY  */
+
+nav.nav-primary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.nav-primary ul {
+    display: flex;
+    margin-right: 10%;
+}
+
+.nav-primary ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Oswald", sans-serif;
+    font-weight: regular;
+    font-size: 16px;
+    color: #141414;
+    transition: color 0.2s ease;
+}
+
+.nav-primary ul li {
+    list-style: none;
+    padding: 10px 15px;
+}
+
+.nav-primary ul li a:hover {
+    color: #fd8617;
+}
+
+.nav-primary .logo {
+    margin-left: 5%;
+}
+
+.nav-primary .logo:hover {
+    animation: headShake 1s ease-in-out;
+}
+
+/* RESPONSIVE NAVBAR */
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 10%;
+    z-index: 1; 
+}
+
+.menu-icon span {
+    background-color: #141414;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    transition: 0.2s;
+}
+
+
+/* ANIMAZIONI */
+
+@keyframes headShake {
+    0% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+  
+    6.5% {
+      -webkit-transform: translateX(-6px) rotateY(-9deg);
+      transform: translateX(-6px) rotateY(-9deg);
+    }
+  
+    18.5% {
+      -webkit-transform: translateX(5px) rotateY(7deg);
+      transform: translateX(5px) rotateY(7deg);
+    }
+  
+    31.5% {
+      -webkit-transform: translateX(-3px) rotateY(-5deg);
+      transform: translateX(-3px) rotateY(-5deg);
+    }
+  
+    43.5% {
+      -webkit-transform: translateX(2px) rotateY(3deg);
+      transform: translateX(2px) rotateY(3deg);
+    }
+  
+    50% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+  }
+  .animate__headShake {
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-name: headShake;
+    animation-name: headShake;
+  }
+
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+    .nav-primary ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fd8617;
+        position: absolute;
+        top: 100px;
+        left: 0;
+    }
+
+    .nav-primary ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .nav-primary ul li a:hover {
+        color: #ffffff;
+    }
+
+    .nav-primary .logo {
+        width: 14%;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .nav-primary ul.show {
+        display: flex;
+    }
+
+/* TRASFORMAZIONE DELL'HAMBURGER NELLA X  */
+    .menu-icon.toggle span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .menu-icon.toggle span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-icon.toggle span:nth-child(3) {
+        transform: rotate(50deg) translate(-10px, -10px);
+    }
+}
